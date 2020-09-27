@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/stylepie.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+    <title>Dashboard for Coronavirus</title>
+</head>
+<div class="menubar">
+    <ul>
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/">graphs</a>
+            <div id="submenu1">
+                <ul>
+                    <li><a href="/bar">Bar graph</a></li>
+                    <li><a href="/line">line graph</a></li>
+                    <li><a href="/pie"> pie chart</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="/map">Map</a></li>
+        <li><a href="/contact">contact us</a></li>
+    </ul>
+</div><canvas id="myChart" height="100" width="100"></canvas>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+<script>
+    $(document).ready(function () {
+    // Get JSON data from url
+    $.getJSON("json/data.json", function (data) {
+      var name=[]
+      var infected = [];
+      var recovered = [];
+      var dead = [];
+      $.each(data, function (id, obj) {
+        
+        name.push(obj.name)
+        infected.push(obj.infected);
+        recovered.push(obj.recovered);
+        dead.push(obj.dead);
+      });
+      console.log(name)
+   var ctx = document.getElementById('myChart').getContext('2d');
+  var chart = new Chart(ctx, {
+      // The type of chart we want to create
+      type: 'pie',
+  
+      // The data for our dataset
+      data: {
+          labels: name,
+          datasets: [{
+              label: "dead",
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
+              data: infected,
+          },
+          {
+              label: "infected",
+          data: recovered,
+          backgroundColor: 'rgba(251, 217, 158, 0.6)', //yelloworange color
+          }
+         
+      ]
+      },
+  
+      // Configuration options go here
+      options: {}
+  }); 
+  
+  });
+  });
+</script>

@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#container{
+    border-radius: 8px;
+    margin: 103px;
+    padding: 31px;
+    border: 2px solid white;
+    background-color: #b7b7ce;
+}
+.inputform{
+    display: initial;
+    padding: 23px;
+    margin: 3px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+
+input{
+    text-align: center;
+    display: block;
+    width: 500px;
+    padding: 9px;
+    border: 2px solid black;
+    margin: 3px auto;
+    }
+
+    #btn {
+        height: 61%;
+        width: 25%;
+    }
+
+    .containers {
+        width: 295px;
+        height: 38px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 507px;
+    }

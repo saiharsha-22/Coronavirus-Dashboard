@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard for Coronavirus</title>
+    <link rel="stylesheet" href="css/stylec.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body{
+    margin: 0px;
+padding: 0px;
+background: url('img/bg.jpg')no-repeat center/cover;
+height: 100vh;
+width: 100vw;
+font-family: 'Modak', cursive;
+}
+    </style>
+</head>
+<div class="menubar">
+    <ul>
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/">graphs</a>
+            <div id="submenu1">
+                <ul>
+                    <li><a href="/bar">Bar graph</a></li>
+                    <li><a href="/line"> graph</a></li>
+                    <li><a href="/pie"> pie chart</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="/map">Map</a></li>
+        <li><a href="/contact">contact us</a></li>
+    </ul>
+</div>
+<form method="post" action="/contact">
+    <div id="container">name:<input class="inputform" type="text" name="name" placeholder="enter your name"> 
+        Age:<input class="inputform" type="text" name="age" placeholder="enter your age"><br> 
+        gender:<input class="inputform" type="text" name="gender" placeholder="gender">        
+        City:<input class="inputform" type="text" name="city" placeholder="enter your city"><br> 
+        Area:<input class="inputform" type="text" name="area" placeholder="enter your area"> 
+        Zone:<input class="inputform" type="text" name="zone" placeholder="zonecolor"><br>        
+        Description<input class="inputform" type="text" name="desc" placeholder="any health issues"> 
+        number:<input class="inputform" type="text" name="phno" placeholder="enter your phone number">
+        <div class="containers"><button id="btn">submit</button> </div>     
+    </div>
+</form>

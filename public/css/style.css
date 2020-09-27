@@ -1,0 +1,73 @@
+*{
+    padding: 0;
+    margin:0;
+}
+body{
+    margin: 0px;
+padding: 0px;
+background: url('..//images/bg.jpg')no-repeat center/cover;
+height: 100vh;
+width: 100vw;
+font-family: 'Modak', cursive;
+}
+
+/* Menu navigation bar */
+.menubar{
+
+    background-color: rgb(110, 110, 176);
+    /*text-align: center;*/ /*This is for making the menubar center*/
+}
+.menubar ul{
+    display: inline-flex;
+    list-style: none;
+    color: white;
+}
+
+.menubar ul li{
+    width: 120px;
+    margin: 15px;
+    padding: 15px;
+}
+
+.menubar ul li a{
+    text-decoration: none;
+    color: white;
+}
+.active,.menubar ul li:hover{
+    background-color: rgb(158, 158, 183);
+    border-radius: 3px;
+}
+#submenu1{
+    display: none;
+}
+.menubar ul li:hover #submenu1{
+    display: block;
+    position: absolute;
+    background-color:rgb(158, 158, 183);
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.menubar ul li:hover #submenu1 ul{
+    display: block;
+    margin: 10px;
+}
+
+.menubar ul li:hover #submenu1 ul li{
+    width: 150px;
+    padding: 10px;
+     background: transparent;
+    border: 0;
+    text-align: left;
+    border-bottom:3px dotted white;
+    background-color: rgb(158, 158, 183);
+}
+
+
+/*container*/
+.container{
+    background-color: white;
+    height: 600px;
+    width: 623px;
+    margin-left: 50px;
+    margin-top: 23px;
+}

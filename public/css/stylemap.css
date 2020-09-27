@@ -1,0 +1,64 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+       
+
+#map {
+    height: 80vh;
+    width: 69vw;
+    margin: 23px;
+    padding: 0;
+    float: right;
+}
+        .menubar{
+
+            background-color: rgb(110, 110, 176);
+            /*text-align: center;*/ /*This is for making the menubar center*/
+        }
+        .menubar ul{
+            display: inline-flex;
+            list-style: none;
+            color: white;
+        }
+        
+        .menubar ul li{
+            width: 120px;
+            margin: 15px;
+            padding: 15px;
+        }
+        
+        .menubar ul li a{
+            text-decoration: none;
+            color: white;
+        }
+        .active,.menubar ul li:hover{
+            background-color: rgb(158, 158, 183);
+            border-radius: 3px;
+        }
+        #submenu1{
+            display: none;
+        }
+        .menubar ul li:hover #submenu1{
+            display: block;
+            position: absolute;
+            background-color:rgb(158, 158, 183);
+            margin-top: 15px;
+            margin-left: 15px;
+        }
+        .menubar ul li:hover #submenu1 ul{
+            display: block;
+            margin: 10px;
+        }
+        
+        .menubar ul li:hover #submenu1 ul li{
+            width: 150px;
+            padding: 10px;
+             background: transparent;
+            border: 0;
+            text-align: left;
+            border-bottom:3px dotted white;
+        }
+        

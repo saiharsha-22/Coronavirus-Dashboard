@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/stylemap.css">
+    <title>Dashboard for Coronavirust</title>
+</head>
+<div class="menubar">
+    <ul>
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/">graphs</a>
+            <div id="submenu1">
+                <ul>
+                    <li><a href="/bar">Bar graph</a></li>
+                    <li><a href="/line">line graph</a></li>
+                    <li><a href="/pie">pie chart</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="/map">Map</a></li>
+        <li><a href="/contact">contact us</a></li>
+    </ul>
+</div>
+<div id="map"></div>
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
+<script >
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic2FpaGFyc2hhIiwiYSI6ImNrYWMyN2JsODFqaHkyeXFrOGtzZ2duZTUifQ.NPTlYadBblpKfSGdSMxdOw';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/dark-v10'
+});
+function updateMap() {
+    console.log("Updating map with realtime data")
+    fetch('json/data1.json')
+        .then(response => response.json())
+        .then(rsp => {
+            // console.log(rsp.data)
+            rsp.data.forEach(element => {
+                latitude = element.latitude;
+                longitude = element.longitude;
+
+                cases = element.infected;
+                if (cases>255){
+                    color = "rgb(255, 0, 0)";
+                }
+
+                else{
+                    color = `rgb(${cases}, 0, 0)`;
+                }
+
+                // Mark on the map
+                new mapboxgl.Marker({
+                    draggable: false,
+                    color: color
+                }).setLngLat([longitude, latitude])
+                .addTo(map); 
+            });
+        })
+}
+
+let interval = 20000;
+setInterval( updateMap, interval);
+</script>
